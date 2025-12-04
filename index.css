@@ -3,6 +3,25 @@ body {
     margin: 0;
 }
 
+/* ------------------popup styling voor js-------------- */
+
+.popup {
+  position: fixed;   
+  bottom: 30px;             
+  left: 50%;              
+  transform: translate(-50%, -50%) scale(0.7); 
+  opacity: 0;             
+  transition: 0.3s ease;
+  pointer-events: none;   
+  z-index: 10;          
+}
+
+.popup.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1); 
+}
+
+
 .detail-pagina-header {
   display: flex;
   justify-content: space-between;
@@ -23,26 +42,13 @@ body {
   gap: 0.75rem;
 }
 
+
 .addbutton{
   border-color: transparent;
   color: var(--textcolor);
 }
 
-.popup {
-  position: fixed;   
-  bottom: 30px;             
-  left: 50%;              
-  transform: translate(-50%, -50%) scale(0.7); 
-  opacity: 0;             
-  transition: 0.3s ease;
-  pointer-events: none;   
-  z-index: 10;          
-}
 
-.popup.show {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1); 
-}
 
 .product-info>* {
   margin: 0;
