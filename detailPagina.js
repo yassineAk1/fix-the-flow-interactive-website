@@ -3,10 +3,10 @@
 const button = document.querySelector('.addbutton');
 
 // 1.2 Selecteer de tekst binnen de button die aangepast moet worden
-const textEl = button.querySelector('.listButton-text');
+const textContent = button.querySelector('.listButton-text');
 
 // 1.3 Selecteer het icon binnen de button die aangepast moet worden
-const iconEl = button.querySelector('.listButton-icon');
+const iconContent = button.querySelector('.listButton-icon');
 
 // 1.4 Selecteer de popup die moet verschijnen
 const popup = document.querySelector('.popup');
@@ -23,10 +23,10 @@ button.addEventListener('click', function () {
   // 3.2 Als de class is toegevoegd, dus is true is
   if (isAdded) {
     // 3.3 Verander de tekst naar 'Added'
-    textEl.textContent = 'Added';
+    textContent.textContent = 'Added';
     
     // 3.4 Verander het icon naar een check icon
-    iconEl.src = 'assets/check.svg';
+    iconContent.src = 'assets/check.svg';
 
     // 3.5 Toon de popup als extra feedback
     popup.classList.add('show');
@@ -39,10 +39,10 @@ button.addEventListener('click', function () {
   } else {
     // 3.7 Als de class is verwijderd, dus false
     // Zet de tekst terug naar 'Add to'
-    textEl.textContent = 'Add to';
+    textContent.textContent = 'Add to';
     
     // Zet de icon terug naar de add to versie
-    iconEl.src = 'assets/addlist.svg';
+    iconContent.src = 'assets/addlist.svg';
   }
 
   // log in de console dat de button geklikt is
