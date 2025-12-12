@@ -105,6 +105,17 @@ body {
   }
 }
 
+.back-button {
+  margin: 1rem;
+  gap: 0.5rem;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--textcolor);
+  display: none;
+}
+
 .product-info>* {
   margin: 0;
 }
@@ -335,6 +346,8 @@ body {
   background: var(--background-color);
   overflow: hidden;
   transition: transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
 }
 
 .recommendation-card:hover {
@@ -393,16 +406,17 @@ body {
   justify-content: space-between;
 }
 
-.saved-info {
+.saved-info,
+.given-info {
   display: flex;
-  align-items: flex-end;
-  font-size: 0.75rem;
+  align-items: center;
+  font-size: 0.65rem;
   font-weight: 600;
   color: var(--secondary-text-color);
 }
 
 .avatar {
-  width: 4rem;
+  width: 2rem;
   height: 3rem;
   border-radius: 50%;
   border: 2px solid white;
