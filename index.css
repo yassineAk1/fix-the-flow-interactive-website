@@ -25,6 +25,10 @@ body {
 .detail-pagina-header {
   display: flex;
   justify-content: space-between;
+
+  .nav-icons{
+    padding-top: .5em;
+  }
 }
 
 .logo img {
