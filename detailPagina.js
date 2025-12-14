@@ -34,7 +34,7 @@ button.addEventListener('click', function () {
     // 3.6 Verberg de popup automatisch na 1 seconde
     setTimeout(() => {
       popup.classList.remove('show');
-    }, 1000);
+    }, 1500);
 
   } else {
     // 3.7 Als de class is verwijderd, dus false
