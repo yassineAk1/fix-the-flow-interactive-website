@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .filter-form {
+            max-width: 320px;
+            margin: 0 auto;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        details {
+            border-bottom: 1px solid #eee;
+        }
+
+        details:last-child {
+            border-bottom: none;
+        }
+
+        summary {
+            padding: 16px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:hover {
+            background: #f9f9f9;
+        }
+
+        summary:focus {
+            outline: 2px solid #0066cc;
+            outline-offset: -2px;
+        }
+
+        summary::after {
+            content: '▼';
+            font-size: 12px;
+            transition: transform 0.2s;
+        }
+
+        details[open] > summary::after {
+            transform: rotate(-180deg);
+        }
+
+        fieldset {
+            border: none;
+            padding: 8px;
+            max-height: 40vh;
+            overflow-y: auto;
+        }
+
+        legend {
+            padding: 12px 16px;
+            font-weight: 500;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            cursor: pointer;
+            width: calc(100% - 16px);
+            margin: 4px 8px;
+        }
+
+        legend:hover {
+            background: #f0f0f0;
+        }
+
+        details details {
+            border: none;
+            margin: 4px 0;
+        }
+
+        details details summary {
+            padding: 12px 16px;
+            font-weight: 500;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+        }
+
+        details details summary:hover {
+            background: #f0f0f0;
+        }
+
+        .option-list {
+            padding: 8px 16px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            color: #0066cc;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #0066cc;
+        }
+
+        label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        input:focus {
+            outline: 2px solid #0066cc;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <form class="filter-form" role="search" aria-label="Filter opties">
+        <details>
+            <summary>Filter</summary>
+            
+            <details>
+                <summary>De persoon</summary>
+                <fieldset>
+                    <div class="option-list">
+                        <div class="option">
+                            <input type="checkbox" id="man" name="geslacht" value="man">
+                            <label for="man">Man</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" id="vrouw" name="geslacht" value="vrouw">
+                            <label for="vrouw">Vrouw</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" id="unisex" name="geslacht" value="unisex">
+                            <label for="unisex">Unisex</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </details>
+
+            <details>
+                <summary>Deze persoon is</summary>
+                <fieldset>
+                    <div class="option-list">
+                        <div class="option">
+                            <input type="radio" id="familie" name="relatie" value="familie">
+                            <label for="familie">Familie</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="vriend" name="relatie" value="vriend">
+                            <label for="vriend">Vriend</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="collega" name="relatie" value="collega">
+                            <label for="collega">Collega</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </details>
+
+            <details>
+                <summary>Stijl & voorkeuren</summary>
+                <fieldset>
+                    <div class="option-list">
+                        <div class="option">
+                            <input type="radio" id="modern" name="stijl" value="modern">
+                            <label for="modern">Modern</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="klassiek" name="stijl" value="klassiek">
+                            <label for="klassiek">Klassiek</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="sportief" name="stijl" value="sportief">
+                            <label for="sportief">Sportief</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </details>
+        </details>
+    </form>
+</body>
+</html>
