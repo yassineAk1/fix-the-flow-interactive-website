@@ -47,3 +47,39 @@ button.addEventListener("click", function () {
   // log in de console dat de button geklikt is
   console.log("button clicked");
 });
+
+// STAP 1: Selecteert elementen in de DOM
+
+// 1.1 Selecteert alle sliders van het type "range"
+const sliders = document.querySelectorAll('input[type="range"]');
+
+
+// STAP 2: Loopt door elke slider heen
+
+
+// 2.1 pakt alle sliders op de pagina
+sliders.forEach(function (slider) {
+
+  // STAP 3: Geeft visuele feedback aan de gebruiker
+
+  // 3.1 Maak een functie die de slider-stijl bijwerkt
+  function updateSlider() {
+
+    // 3.2 Haalt de huidige waarde van de slider op
+    const position = slider.value;
+
+    // 3.3 Haal de kleur op uit het data-color attribuut
+    const color = slider.dataset.color;
+
+    // 3.4 Maakt een gradient:
+    // Tot de huidige positie krijgt de slider kleur Daarna wordt de slider grijs
+    slider.style.background =
+      `linear-gradient(90deg, ${color} ${position}%, #e0e0e0 ${position}%)`;
+  }
+
+  // 3.5 Update de slider terwijl de gebruiker sleept
+  slider.addEventListener("input", updateSlider);
+
+  // 3.6 Zet de juiste startkleur wanneer de pagina laadt
+  updateSlider();
+});

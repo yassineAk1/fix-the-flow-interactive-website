@@ -139,8 +139,6 @@ details:not([open]) summary::after {
 
 summary {
   list-style: none; 
-  display: flex;
-  justify-content: center;
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -381,7 +379,8 @@ summary:hover {
 .product-details {
   background: var(--background-color-secondary);
   font-family: var(--font-family);
-    max-width: 40ch; 
+  max-width: 40ch; 
+  padding-left: 1em;
 }
 
 .visually-hidden {
@@ -425,75 +424,106 @@ summary:hover {
 
 /* ================= Reviews================= */
 
-.reviews-section {
-  grid-area: reviews;
-  background: var(--background-color);
-  border-radius: 1.25rem;
-  padding: 1.5rem;
-  display: grid;
-  gap: 1.5rem;
-  max-width: 320px;
+    .reviews-section {
+      background: var(--background-color);
+      border-radius: 24px;
+      padding: 1rem 1rem rem;
+      max-width: 400px;
+      margin-bottom: 1em;
+
+      @media(max-width:768px){
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  }
+    }
+
+    .review-item {
+      margin-bottom: 2.5rem;
+    }
+
+    .review-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .review-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .review-scale {
+      position: relative;
+    }
+
+    .review-scale > span {
+      font-size: 1rem;
+      color: var(--textcolor);
+      position: absolute;
+      top: 2.5rem;
+    }
+
+    .review-scale > span:last-of-type {
+      right: 0;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 4px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: var(--background-color);
+      border-radius: 2px;
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
+
+.review-item:nth-child(1) input::-webkit-slider-thumb { 
+  background: url('assets/range1.svg') center/contain no-repeat;
+  transform: translateY(-10px);   
 }
 
-.review-item {
-  display: grid;
-  gap: 0.5rem;
+.review-item:nth-child(1) input::-moz-range-thumb { 
+  background: url('assets/range1.svg') center/contain no-repeat;
+  transform: translateY(-10px);   
 }
 
-.review-title {
-  text-align: center;
-  font-weight: 600;
-  font-size: 0.95rem;
-  margin: 0;
+.review-item:nth-child(2) input::-webkit-slider-thumb { 
+  background: url('assets/range2.svg') center/contain no-repeat;
+  transform: translateY(-10px);   
 }
 
-.review-scale {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  font-size: 0.7rem;
-  color: var(--secondary-text-color);
-  position: relative;
+.review-item:nth-child(2) input::-moz-range-thumb { 
+  background: url('assets/range2.svg') center/contain no-repeat;
+  transform: translateY(-10px);   
 }
 
-.review-scale span:first-child {
-  text-align: left;
+.review-item:nth-child(3) input::-webkit-slider-thumb { 
+  background: url('assets/range3.svg') center/contain no-repeat;
+  transform: translateY(-10px);   
 }
 
-.review-scale span:nth-child(2) {
-  text-align: right;
+.review-item:nth-child(3) input::-moz-range-thumb { 
+  background: url('assets/range3.svg') center/contain no-repeat;
+  transform: translateY(-10px);   
 }
 
-.review-track {
-  grid-column: 1 / -1;
-  position: relative;
-  height: 4px;
-  background: #e5e5e5;
-  border-radius: 2px;
-  margin-top: 0.5rem;
-}
 
-.review-marker {
-  position: absolute;
-  top: -6px;
-  transform: translateX(-50%);
-  width: 18px;
-  height: 18px;
-  background: var(--accentcolor);
-  border-radius: 50% 50% 50% 0;
-  transform: translateX(-50%) rotate(45deg);
-}
 
-.reviews-section {
-  margin: 1rem auto 0;
-  width: 100%;
-  max-width: 90%;
-  padding: 0 1rem;
-}
+/* ================================== */
 
-.reviews-section img {
-  width: 100%;
-  height: auto;
-}
 
 .map-section {
   padding: 2rem 1.5rem;
@@ -762,7 +792,7 @@ summary:hover {
   grid-template-columns: 1fr 1fr;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .footer-links {
     display: flex;
     flex-direction: row;
