@@ -2,6 +2,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: var(--background-color-secondary);
 }
 
 /* ------------------tablet-------------- */
@@ -13,9 +14,10 @@ body {
     grid-template-areas:
       "back back back"
       "gallery info info"
-      "details shopOnline shopInPerson"
-      ".  map map"
-      "reviews map map"
+      "gallery details details"
+      "description reviews reviews"
+      "map shopOnline shopInPerson"
+      
       "recommendations recommendations recommendations";
     max-width: 1400px;
     margin: 0 auto;
@@ -29,7 +31,7 @@ body {
     display: inline-flex;
     grid-area: back;
   }
-
+  .product-description {grid-area: description;}
   .product-gallery { grid-area: gallery; }
   .product-details { grid-area: details; }
   .reviews-section { grid-area: reviews; }
@@ -148,10 +150,16 @@ summary:hover {
 }
 
 
+.shareButton{
+  background-color: var(--background-color);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
 
 .addbutton{
   border-color: transparent;
   color: var(--textcolor);
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
 }
 
 .addbutton.added {
@@ -367,13 +375,13 @@ summary:hover {
   font-size: 1rem;
 }
 
-
+.product-description{
+  padding-left: 1em;
+}
 .product-details {
   background: var(--background-color-secondary);
-  padding: 0rem 1.5rem;
-  max-width: 22rem;
   font-family: var(--font-family);
-  margin: 0 auto;
+    max-width: 40ch; 
 }
 
 .visually-hidden {
