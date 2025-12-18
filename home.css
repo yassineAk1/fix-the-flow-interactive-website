@@ -302,25 +302,32 @@ h1 {
 }
 
 
-/* Filter */
 .filter-form {
-  max-width: 320px;
   background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
   grid-column: 1 / -1;
+  border-radius: 10px;
+  justify-self: start;
+}
 
- summary {
-  padding: 16px;
-  cursor: pointer;
-  list-style: none;
-  user-select: none;
-  font-weight: 600;
+.filter-form > details {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
+
+.filter-form > details > summary {
+  padding: 1em;
+  cursor: pointer;
 }
+
+.filter-form > details > *:not(summary) {
+  display: flex;
+  padding: 1em;
+}
+
+.filter-form details details summary {
+  cursor: pointer;
+
+}
+
 
 
 .community img {
