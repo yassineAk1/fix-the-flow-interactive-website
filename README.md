@@ -1,108 +1,105 @@
-
 # Milledoni 
-
 
 ## Beschrijving
 
-Milledoni helpt gebruikers bij het vinden van het perfecte cadeau door een overzichtelijke catalogus met filters, persoonlijke lijsten en gedetailleerde productinformatie. De website biedt zowel inspiratie als praktische aankoopopties.
+Milledoni helpt gebruikers bij het vinden van het perfecte cadeau. Je kan zoeken, filteren en producten opslaan in je eigen lijsten.
 
 ![Mockup Result (3)](https://github.com/user-attachments/assets/03a9d918-c962-432f-a0e9-78ecc6dabf78)
 
+## Inhoudsopgave
+
+  * [Beschrijving](#beschrijving)
+  * [Kenmerken](#kenmerken)
+  * [Code conventies](#code-conventies)
+  * [Bronnen](#bronnen)
+
 ### Responsive
 
-De website is **mobile-first** ontworpen met breakpoints op 768px en 1024px:
+De website is mobile-first gebouwd met breakpoints op 768px en 1024px.
 
 **Mobile (< 768px)**
-- Gestapelde layout
-- Compacte navigatie met iconen
-- Product grid in 2 kolommen
+- Alles onder elkaar gestapeld
+- 2 kolommen voor producten
+- Compact logo
+
+![Free iPhone 15 Pro Hand Mockup (Mockuuups Studio)](https://github.com/user-attachments/assets/a4dd1a63-0eeb-4fa5-a452-c916c00669f1)  
 
 
 **Tablet (768px - 1023px)**
-- CSS Grid layout met named areas voor detail pagina
-- Grid template: `1.8fr 1.1fr 1.1fr`
-- Product grid uitbreiding naar 3 kolommen
+- CSS Grid layout voor detail pagina
+- 3 kolommen voor producten
+
+  <img width="1243" height="1398" alt="Free iPad mockup with wedding theme (Mockuuups Studio)" src="https://github.com/user-attachments/assets/f5b302c6-f568-4c27-b4bb-be9cfae0b012" />
 
 
 **Desktop (≥ 1024px)**
-- Geoptimaliseerde grid: `2fr 1fr 1fr`
-- Product grid met 4 kolommen
-- Volledig logo (fullLogo.svg) via picture element
-- Max-width van 1400px
+- Volledig logo zichtbaar
+- 4 kolommen voor producten
+- Max-width van 1400px voor leesbaarheid
 
-**Picture element implementatie:**
-```html
-<picture>
-  <source srcset="assets/fullLogo.svg" media="(min-width:770px)">
-  <img src="assets/Group117.svg" alt="milledoni Logo">
-</picture>
-```
+<img width="1542" height="1206" alt="Free Macbook Pro Space Gray mockup on the wooden table (Mockuuups Studio)" src="https://github.com/user-attachments/assets/0f54067b-d87f-43dd-b225-ea541a90d3b6" />
+**Responsive logo met picture element:**
 
-### Toegankelijk
+Op mobile zie je het kleine logo, op desktop het volledige.
 
-**Toetsenbordnavigatie**
-- Skip-to-content link: `<a href="#main" class="skip">Skip to main content</a>`
-- Focus states op alle interactieve elementen
+### Toegankelijkheid
 
-**Screen reader ondersteuning**
-- Semantische HTML5 landmarks (`<header>`, `<nav>`, `<main>`, `<footer>`)
-- ARIA labels: `aria-label="Add to list"`, `aria-label="Pagination"`, `aria-label="Filter opties"`
+**Toetsenbord navigatie:**
+- Skip link om direct naar content te gaan
+- Focus states op alle knoppen en links
+- Tab door alle interactieve elementen
 
-
-**Formulieren**
-- `<label for="">` koppelingen
-- `autocomplete="email"` voor email veld
-- Required attribute op email input
-- Fieldsets voor radio button groepen
-
-**Visueel**
-- `.visually-hidden` class voor screen reader-only content
+**Screen readers:**
+- Semantische HTML (`<header>`, `<nav>`, `<main>`, `<footer>`)
+- ARIA labels op knoppen: `aria-label="Add to list"`
 - Alt teksten op alle afbeeldingen
-- Voldoende kleurcontrast via huisstijl
+
+**Formulieren:**
+- Labels gekoppeld aan inputs met `for` attribute
+- `required` op belangrijke velden
+- `autocomplete="email"` voor email
 
 ### Huisstijl
 
-De Milledoni huisstijl wordt gebruikt via externe stylesheet:
+De Milledoni huisstijl komt uit een externe stylesheet:
 
-```html
-<link rel="stylesheet" href="https://yassineak1.github.io/look-and-feel-styleguide/styleguide-milledoni.css" />
-```
+https://github.com/yassineAk1/fix-the-flow-interactive-website/blob/971a601a12a4048c89049b27b3d6ae262416fe43/index.html#L8
 
-**Typografische classes:**
-- `.font-xl` - Extra large (product titels)
-- `.font-l` - Large (back button)
-- `.font-m` - Medium (body tekst)
+**Typografie classes:**
+- `.font-xl` - Grote titels
+- `.font-l` - Medium tekst
+- `.font-m` - Normale tekst
 
 **Visuele elementen:**
-- Decoratieve strik: `.bow-decoration`
-- Responsive logo's via picture element
+- Decoratieve strik bovenaan (`.bow-decoration`)
 - Custom iconen voor alle acties
-- Afgeronde hoeken en subtiele shadows
+- Afgeronde hoeken en schaduwen
 
-### Interactief
+### Belangrijke features
 
-**1. Add to List functionaliteit - Detail Pagina**
+**1. Add to List - Detail Pagina**
 
-De add to list button op de detail pagina geeft feedback met animaties en een popup.
+Als je op de "Add to list" knop klikt gebeurt er het volgende:
+- Button animatie (schaalt even groter)
+- Icon draait en verandert naar vinkje
+- Tekst verandert naar "Added"
+- Popup verschijnt onderaan scherm
+- Na 1.5 seconde verdwijnt popup weer
 
-**JavaScript (detailPagina.js):**
+**Hoe het werkt:**
 ```javascript
-// STAP 1: Selecteer elementen in de DOM
 const button = document.querySelector(".addbutton");
 const textContent = button.querySelector(".listButton-text");
 const iconContent = button.querySelector(".listButton-icon");
 const popup = document.querySelector(".popup");
 
-// STAP 2: Koppel een event aan de button
 button.addEventListener("click", function () {
-  // STAP 3: Geef feedback aan de gebruiker
   const isAdded = button.classList.toggle("added");
   
   if (isAdded) {
     textContent.textContent = "Added";
     iconContent.src = "assets/check.svg";
     popup.classList.add("show");
-    button.classList.add("ready");
     
     setTimeout(() => {
       popup.classList.remove("show");
@@ -111,378 +108,149 @@ button.addEventListener("click", function () {
     textContent.textContent = "Add to";
     iconContent.src = "assets/addlist.svg";
   }
-  
-  console.log("button clicked");
 });
 ```
 
-
-
-**CSS Animaties:**
+Ik toggle een class `.added` op de button. CSS zorgt dan voor de animaties:
 ```css
 .addbutton.added {
-  animation: confetti-pop 0.6s ease;
+  animation: confetti-pop 0.6s ease; /* Button schaalt */
 }
 
 .addbutton.added .listButton-icon {
-  animation: icon-spin-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-@keyframes confetti-pop {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-@keyframes icon-spin-in {
-  0% { transform: scale(0) rotate(-180deg); opacity: 0; }
-  70% { transform: scale(1.2) rotate(20deg); opacity: 1; }
-  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  animation: icon-spin-in 0.5s; /* Icon draait */
 }
 ```
 
+**2. Save Button - Home Pagina**
 
-**Popup Feedback Systeem:**
-```css
-.popup {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.7);
-  opacity: 0;
-  transition: 0.3s ease;
-  pointer-events: none;
-}
-
-.popup.show {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-```
-
-**2. Save Button functionaliteit - Home Pagina**
-
-Op de home pagina heeft elk product een save button die de status visueel bijhoudt.
-
-**JavaScript (home.js):**
+Op de home pagina heeft elk product een hartje om op te slaan. Als je klikt verandert het icoon naar een vinkje.
 ```javascript
-// STAP 1: Selecteer alle buttons in de DOM
 const buttons = document.querySelectorAll(".add-list");
 
-// STAP 2: Loop door alle buttons en voegt event listeners toe
 buttons.forEach(function (button) {
   button.addEventListener("click", function () {
     const iconContent = button.querySelector(".saveButtonHome");
     const isSaved = button.classList.toggle("saved");
     
-    // STAP 3: geeft feedback aan de gebruiker
     if (isSaved) {
       iconContent.src = "assets/check.svg";
     } else {
       iconContent.src = "assets/addlist.svg";
     }
-    
-    console.log("button clicked");
   });
 });
 ```
 
-
-
-**CSS Hover Effects:**
-```css
-.article-product:hover {
-  transform: translateY(-3px);
-}
-
-.add-list:hover {
-  transform: scale(1.15);
-}
-```
+Hier gebruik ik `querySelectorAll` omdat er meerdere buttons zijn. Dan loop ik erdoorheen met `forEach`.
 
 ## Kenmerken
 
 ### HTML Structuur
 
-**Home pagina (index.html):**
-```
-<header>
-  <a class="skip"> - Skip to main content
-  <a class="logo"> - Picture element met responsive logo
-  <nav class="nav-icons"> - Navigatie iconen
-  
-<main id="main">
-  <form class="search-bar">
-    <h2 class="heading-search"> - "I'm looking for a gift for... my uncle"
-    <input type="search">
-    <div class="community"> - Community badge
-    
-  <section class="gifts">
-    <div class="bow-decoration"> - Decoratief element
-    <h1> - "Get inspired by the world of Milledoni"
-    <form class="filter-form"> - Nested details elementen
-    <article class="article-product"> (x9) - Product cards
-      <a class="gift-listing">
-        <div class="article-product-img">
-        <div class="article-tags">
-        <div class="product-info">
-          <p class="product-title">
-          <div class="listing-footer"> - Saved/Given stats
-      <button class="add-list">
-    <nav class="pagination">
-    
-<footer>
-  <form class="newsletter-form">
-  <nav class="footer-links">
-  <section class="legal">
-```
-![Mockup Result (6)](https://github.com/user-attachments/assets/e428b83d-2387-4566-9a6b-2b92d5bf7d6d)
-**Detail pagina (detail.html):**
-```
-<header class="detail-pagina-header">
-  <a class="logo">
-  <nav class="nav-icons">
-  
-<main> - CSS Grid Layout
-  <a class="back-button"> - Back navigatie
-  
-  <div class="product-info">
-    <h1 class="title">
-    <p> - Beschrijving met details element
-    <p class="font-m"> - Prijs
-    <div class="button-wrapper">
-      <button class="addbutton">
-      <button class="shareButton addbutton">
-      
-  <div class="product-gallery">
-    <div class="gallery-main">
-      <img class="popup"> - Popup voor feedback
-      <button class="nav prev">
-      <img class="main-img">
-      <button class="nav next">
-      
-  <section class="product-description">
-  
-  <section class="product-details">
-    <article class="detail-item"> - Why this gift
-    <article class="detail-item"> - Good to know
-    
-  <section class="reviews-section">
-    <div class="review-item"> (x3)
-      <input type="range" data-color="">
-      
-  <section class="map-section">
-    <iframe> - Google Maps embed
-    
-  <section class="shop-online">
-    <ul class="shop-list"> - Online retailers
-    
-  <section class="shop-in-person">
-    <ul class="shop-list"> - Fysieke locaties
-    
-  <section class="recommendations">
-    <div class="recommendations-grid">
-      <article class="article-product"> (x4)
-      
-<footer class="footer-detail">
-  <form class="newsletter-form">
-  <nav class="footer-links">
-  <div class="legal">
-```
+**Home pagina:**
+- Header met logo en navigatie iconen
+- Search bar met "I'm looking for a gift for..."
+- Filter form met details elements (inklapbaar)
+- Product grid met 9 producten
+- Elke product card heeft een save button
+- Pagination onderaan
+- Footer met newsletter en links
+
+**Detail pagina:**
+- Header met back button
+- CSS Grid layout voor alles
+- Product gallery met voor/volgende knoppen
+- Product info met add to list button
+- Reviews sectie met sliders
+- Google Maps voor winkel locatie
+- Aanbevelingen onderaan
 
 ### CSS Technieken
 
-**1. CSS Grid voor Detail Pagina Layout**
+**CSS Grid voor Detail Pagina:**
 
+De hele detail pagina gebruikt CSS Grid met named areas. Zo kan ik makkelijk elementen positioneren:
 ```css
-@media (min-width: 768px) {
-  main {
-    display: grid;
-    grid-template-columns: 1.8fr 1.1fr 1.1fr;
-    grid-template-areas:
-      "back back back"
-      "gallery info info"
-      "gallery details details"
-      "description details details"
-      "description reviews reviews"
-      "map reviews reviews"
-      "map reviews reviews"
-      "map shopOnline shopInPerson"
-      "recommendations recommendations recommendations";
-    max-width: 1400px;
-    margin: 0 auto;
-    gap: 1rem;
-  }
+main {
+  display: grid;
+  grid-template-columns: 1.8fr 1.1fr 1.1fr;
+  grid-template-areas:
+    "back back back"
+    "gallery info info"
+    "gallery details details"
+    "description details details";
 }
-```
 
-**Grid area toewijzingen:**
-```css
-.back-button { grid-area: back; }
 .product-gallery { grid-area: gallery; }
 .product-info { grid-area: info; }
-.product-details { grid-area: details; }
-.reviews-section { grid-area: reviews; }
-.product-description { grid-area: description; }
-.shop-online { grid-area: shopOnline; }
-.shop-in-person { grid-area: shopInPerson; }
-.map-section { grid-area: map; }
-.recommendations { grid-area: recommendations; }
 ```
 
-**2. Responsive Product Grid**
-
+**Responsive Product Grid:**
 ```css
 .recommendations-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* Mobile: 2 kolommen */
 }
 
 @media (min-width: 728px) {
   .recommendations-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr); /* Tablet: 3 kolommen */
   }
 }
 
 @media (min-width: 1024px) {
   .recommendations-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4rem;
+    grid-template-columns: repeat(4, 1fr); /* Desktop: 4 kolommen */
   }
 }
 ```
 
-**3. Button Animaties voor Add to List**
+**Animaties:**
 
+Button pop animatie:
 ```css
-.addbutton.added {
-  animation: confetti-pop 0.6s ease;
-}
-
-.addbutton.added .listButton-icon {
-  animation: icon-spin-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
 @keyframes confetti-pop {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.1); }
 }
-
-@keyframes icon-spin-in {
-  0% { transform: scale(0) rotate(-180deg); opacity: 0; }
-  70% { transform: scale(1.2) rotate(20deg); opacity: 1; }
-  100% { transform: scale(1) rotate(0deg); opacity: 1; }
-}
-
-.addbutton.ready:not(.added) {
-  animation: confetti-reverse 0.5s ease;
-}
-
-.addbutton.ready:not(.added) .listButton-icon {
-  animation: icon-spin-out 0.5s ease;
-}
 ```
 
-**4. Hover Effects**
-
+Icon spin animatie:
 ```css
-.article-product:hover {
-  transform: translateY(-3px);
-}
-
-.add-list:hover {
-  transform: scale(1.15);
-}
-
-summary:hover {
-  color: var(--accentcolor);
+@keyframes icon-spin-in {
+  0% { transform: scale(0) rotate(-180deg); }
+  100% { transform: scale(1) rotate(0deg); }
 }
 ```
 
+### JavaScript
+
+**Twee bestanden:**
+- `detailPagina.js` - Add to list met popup
+- `home.js` - Save buttons op home pagina
+
+**Wat ik gebruik:**
+- `querySelector` om elementen te pakken
+- `addEventListener` voor click events
+- `classList.toggle` om classes aan/uit te zetten
+- `setTimeout` voor de popup timer
+- `forEach` om door meerdere buttons te loopen
+
+## Code conventies
+
+### HTML
+- Witregels tussen grote secties
+- Semantische tags waar mogelijk
+- ARIA labels op interactieve elementen
+
+### CSS
+- Media queries genest in de selector
+- Logische volgorde (top naar beneden van de pagina)
+- BEM-achtige naming voor classes
+
+### JavaScript
+- Duidelijke variabele namen
+- Comments bij elk stap
 
 
-
-### JavaScript Functionaliteit
-
-**Bestanden:**
-- `detailPagina.js` - Add to list interactie met popup feedback
-- `home.js` - Save button interacties voor productlijst
-
-**detailPagina.js - Add to List met animaties:**
-
-```javascript
-// STAP 1: Selecteer elementen in de DOM
-const button = document.querySelector(".addbutton");
-const textContent = button.querySelector(".listButton-text");
-const iconContent = button.querySelector(".listButton-icon");
-const popup = document.querySelector(".popup");
-
-// STAP 2: Koppel een event aan de button
-button.addEventListener("click", function () {
-  // STAP 3: Geef feedback aan de gebruiker
-  const isAdded = button.classList.toggle("added");
-  
-  if (isAdded) {
-    textContent.textContent = "Added";
-    iconContent.src = "assets/check.svg";
-    popup.classList.add("show");
-    button.classList.add("ready");
-    
-    setTimeout(() => {
-      popup.classList.remove("show");
-    }, 1500);
-  } else {
-    textContent.textContent = "Add to";
-    iconContent.src = "assets/addlist.svg";
-  }
-  
-  console.log("button clicked");
-});
-```
-
-**Gebruikte technieken:**
-- `querySelector` 
-- `classList.toggle` 
-- `setTimeout` 
-- Icon swap via `src` attribute
-
-**home.js - Multiple Save Buttons:**
-
-```javascript
-// STAP 1: Selecteer alle buttons in de DOM
-const buttons = document.querySelectorAll(".add-list");
-
-// STAP 2: Loop door alle buttons en voegt event listeners toe
-buttons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    const iconContent = button.querySelector(".saveButtonHome");
-    const isSaved = button.classList.toggle("saved");
-    
-    // STAP 3: geeft feedback aan de gebruiker
-    if (isSaved) {
-      iconContent.src = "assets/check.svg";
-    } else {
-      iconContent.src = "assets/addlist.svg";
-    }
-    
-    console.log("button clicked");
-  });
-});
-```
-
-**Gebruikte technieken:**
-- `querySelectorAll` voor meerdere elementen
-- `forEach` loop voor 
-- Toggle 
-
-
-
-
-## Bronnen
-
-
-
-## Licentie
-
-This project is licensed under the terms of the [MIT license](./LICENSE).
-```
+# Bronnen
