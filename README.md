@@ -212,6 +212,85 @@ main {
 }
 ```
 
+
+## Ontwerpkeuzes
+
+### Detailpagina
+
+#### Save / Add to list
+
+Op de detailpagina draait alles om één product. Daarom mag de feedback hier duidelijker zijn dan op de home.
+
+Bij een klik verandert de knop van tekst en icoon en verschijnt er kort een popup. Die verdwijnt vanzelf na 1.5 seconde, zodat het niet irritant wordt.
+
+Waarom dit zo is gedaan  
+Je focust hier op één product  
+De gebruiker ziet meteen dat het gelukt is  
+De popup is kort en niet storend  
+De animatie maakt de actie duidelijker
+
+
+#### Button animatie
+
+De knop schaalt kort bij het klikken en het icoon draait erin. Dit geeft het gevoel dat je iets activeert, want feedback is belangrijk voor de gebruiker.
+
+Waarom  
+Het voelt meer als een echte knop  
+Het maakt de actie duidelijk  
+
+#### Layout met CSS Grid
+
+De detailpagina gebruikt CSS Grid met vaste grid areas. Op mobile staat alles onder elkaar. Vanaf tablet en desktop verandert de hele layout.
+
+Op tablet en desktop  
+De gallery staat links  
+Info en details staan rechts  
+Reviews, map en shop-secties hebben vaste plekken  
+Alles blijft overzichtelijk
+
+Dit stuk CSS regelt dat:
+
+```css
+@media (min-width: 768px) {
+  main {
+    display: grid;
+    grid-template-columns: 1.8fr 1.1fr 1.1fr;
+    grid-template-areas:
+      "back back back"
+      "gallery info info"
+      "gallery details details"
+      "description details details"
+      "description reviews reviews"
+      "map reviews reviews"
+      "map shopOnline shopInPerson"
+      "recommendations recommendations recommendations";
+  }
+}
+````
+
+Waarom deze aanpak
+De layout blijft leesbaar
+Grid areas maken meteen duidelijk wat waar hoort
+
+
+#### Shop online vs shop in person
+
+Dit zijn twee aparte blokken met dezelfde stijl.
+
+Waarom
+Consistent uiterlijk
+Andere content maar zelfde opbouw
+Op desktop staan ze netjes naast elkaar
+
+#### Responsive logo
+
+Het logo wisselt tussen klein en volledig via het picture element.
+
+Waarom
+Klein logo op mobiel spaart ruimte
+Groot logo op desktop is wat de oprachtgever graag wou
+Browser kiest automatisch de juiste versie
+
 **Animaties:**
 
 Button pop animatie:
