@@ -22,8 +22,9 @@ De website is mobile-first gebouwd met breakpoints op 768px en 1024px.
 - 2 kolommen voor producten
 - Compact logo
 
-![Free iPhone 15 Pro Hand Mockup (Mockuuups Studio)](https://github.com/user-attachments/assets/a4dd1a63-0eeb-4fa5-a452-c916c00669f1)  
-<img width="937" height="1424" alt="Free Rock iPhone 15 Pro Mockup (Mockuuups Studio)" src="https://github.com/user-attachments/assets/53d11fd9-5afc-4d89-b8f8-48e8b8c6faaf" />
+![Free iPhone 15 Pro Hand Mockup (Mockuuups Studio)](https://github.com/user-attachments/assets/a4dd1a63-0eeb-4fa5-a452-c916c00669f1)   
+<img width="937" height="1424" alt="Free Rock iPhone 15 Pro Mockup (Mockuuups Studio)" src="https://github.com/user-attachments/assets/53d11fd9-5afc-4d89-b8f8-48e8b8c6faaf" />  
+
 
 
 **Tablet (768px - 1023px)**
