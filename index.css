@@ -26,8 +26,8 @@ body {
     overflow-x: hidden;
 
   .gallery-main {
-    aspect-ratio: auto; /* Remove the square constraint */
-    height: 100%; /* Let it fill available height */
+    aspect-ratio: auto; 
+    height: 100%;
   }
 
   }
@@ -108,8 +108,8 @@ body {
       
 
   .gallery-main {
-    aspect-ratio: auto; /* Remove the square constraint */
-    height: 100%; /* Let it fill available height */
+    aspect-ratio: auto; 
+    height: 100%;
   }
 
   }
