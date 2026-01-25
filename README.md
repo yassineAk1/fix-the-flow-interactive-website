@@ -41,7 +41,8 @@ De website is mobile-first gebouwd met breakpoints op 768px en 1024px.
 - Max-width van 1400px voor leesbaarheid
 
 <img width="1542" height="1206" alt="Free Macbook Pro Space Gray mockup on the wooden table (Mockuuups Studio)" src="https://github.com/user-attachments/assets/0f54067b-d87f-43dd-b225-ea541a90d3b6" />
-![Mockup Result](https://github.com/user-attachments/assets/bba7fe06-bd86-4eaa-9be9-529d83765fca)  
+
+<img width="2521" height="1998" alt="Free iMac mockup with rocky textures and dynamic shadows (Mockuuups Studio)" src="https://github.com/user-attachments/assets/3c0d80ac-c428-4e08-9e11-8c0a5be3a045" />
 
 
 **Responsive logo met picture element:**
