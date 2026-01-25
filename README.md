@@ -23,6 +23,7 @@ De website is mobile-first gebouwd met breakpoints op 768px en 1024px.
 - Compact logo
 
 ![Free iPhone 15 Pro Hand Mockup (Mockuuups Studio)](https://github.com/user-attachments/assets/a4dd1a63-0eeb-4fa5-a452-c916c00669f1)  
+<img width="937" height="1424" alt="Free Rock iPhone 15 Pro Mockup (Mockuuups Studio)" src="https://github.com/user-attachments/assets/53d11fd9-5afc-4d89-b8f8-48e8b8c6faaf" />
 
 
 **Tablet (768px - 1023px)**
@@ -30,6 +31,7 @@ De website is mobile-first gebouwd met breakpoints op 768px en 1024px.
 - 3 kolommen voor producten
 
   <img width="1243" height="1398" alt="Free iPad mockup with wedding theme (Mockuuups Studio)" src="https://github.com/user-attachments/assets/f5b302c6-f568-4c27-b4bb-be9cfae0b012" />
+<img width="3371" height="1938" alt="Free iPad Pro mockup on white table (Mockuuups Studio)" src="https://github.com/user-attachments/assets/945ead1d-d666-4a8f-bf28-f00eacc580f7" />
 
 
 **Desktop (≥ 1024px)**
@@ -38,6 +40,9 @@ De website is mobile-first gebouwd met breakpoints op 768px en 1024px.
 - Max-width van 1400px voor leesbaarheid
 
 <img width="1542" height="1206" alt="Free Macbook Pro Space Gray mockup on the wooden table (Mockuuups Studio)" src="https://github.com/user-attachments/assets/0f54067b-d87f-43dd-b225-ea541a90d3b6" />
+![Mockup Result](https://github.com/user-attachments/assets/bba7fe06-bd86-4eaa-9be9-529d83765fca)  
+
+
 **Responsive logo met picture element:**
 
 Op mobile zie je het kleine logo, op desktop het volledige.
